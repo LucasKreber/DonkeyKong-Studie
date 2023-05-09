@@ -13,9 +13,10 @@ import javax.swing.KeyStroke;
 
 public class CreditsPanel extends JPanel {
 	
-	private GUIPanelManager guiManager;
+	GUIPanelManager guiManager;
+	int currentOption = 0;
 	private JLabel returnLabel, creditsLabel1, creditsLabel2, creditsLabel3, creditsLabel4, creditsLabel5;
-	private int currentOption = 0;
+
 	
 	public CreditsPanel(GUIPanelManager guiManager) {
 		
@@ -83,30 +84,13 @@ public class CreditsPanel extends JPanel {
 		ActionMap actionMapPause = this.getActionMap();
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("released ENTER"), "enterReleased");
-		actionMapPause.put("enterReleased", new KeyHandler("enter"));
+		actionMapPause.put("enterReleased", new CreditsPanelKeyHandler("enter", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("W"), "wPressed");
-		actionMapPause.put("wPressed", new KeyHandler("w"));
+		actionMapPause.put("wPressed", new CreditsPanelKeyHandler("w", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("S"), "sPressed");
-		actionMapPause.put("sPressed", new KeyHandler("s"));
+		actionMapPause.put("sPressed", new CreditsPanelKeyHandler("s", this));
 		
-	}
-	
-	class KeyHandler extends AbstractAction{
-		String name;
-		
-		public KeyHandler(String name){
-			this.name = name;
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(name == "enter"){
-				if(currentOption == 0) {
-					guiManager.setOptionsPanelVisible();	
-				}
-			}
-		}
 	}
 }

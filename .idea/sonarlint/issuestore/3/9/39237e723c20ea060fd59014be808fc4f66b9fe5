@@ -1,0 +1,16 @@
+
+p	java:S116!"VRename this field "GRID_HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áàä«øÿÿÿÿ
+j	java:S116""URename this field "GRID_WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÝÂèò
+<
+java:S1170!"!Make this final field static too.(Áàä«øÿÿÿÿ
+7
+java:S1170""!Make this final field static too.(ÝÂèò
+E
+java:S1659%"*Declare "titleSecPart" on a separate line.(ñÊ£ˆúÿÿÿÿ
+_
+java:S1659&"DDeclare "options" and all following declarations on a separate line.(®»±øúÿÿÿÿ
+V	java:S125W"<This block of commented-out lines of code should be removed.(¹ãÃ¤üÿÿÿÿ
+T
+java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘8¬¥üÜã0
+Y
+java:S1128"7Remove this unused import 'javax.swing.AbstractAction'.(á§Çþÿÿÿÿ8­¥üÜã0

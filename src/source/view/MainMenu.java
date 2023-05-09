@@ -35,9 +35,9 @@ public class MainMenu extends JPanel{
 	
 	//variables
 	private JLabel titleFirstPart, titleSecPart;
-	private JLabel play, options, highscores, quit;
-	private GUIPanelManager guiManager;
-	private int currentOption; // acts like a pointer, it points out to the current option
+	JLabel play, options, highscores, quit;
+	GUIPanelManager guiManager;
+	int currentOption; // acts like a pointer, it points out to the current option
 	
 	//constructor - each component is created and added to panel
 	public MainMenu(GUIPanelManager guiManager){
@@ -94,104 +94,13 @@ public class MainMenu extends JPanel{
 		ActionMap actionMapPause = this.getActionMap();
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("released ENTER"), "enterReleased");
-		actionMapPause.put("enterReleased", new KeyHandler("enter"));
+		actionMapPause.put("enterReleased", new MainMenuKeyHandler("enter", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("W"), "wPressed");
-		actionMapPause.put("wPressed", new KeyHandler("w"));
+		actionMapPause.put("wPressed", new MainMenuKeyHandler("w", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("S"), "sPressed");
-		actionMapPause.put("sPressed", new KeyHandler("s"));
+		actionMapPause.put("sPressed", new MainMenuKeyHandler("s", this));
 		
 	}
-	
-	class KeyHandler extends AbstractAction{
-		String name;
-		
-		public KeyHandler(String name){
-			this.name = name;
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(name == "enter"){
-				if(currentOption == 0) {
-					guiManager.setLevelSelectionPanelVisible();
-				}
-				
-				else if (currentOption == 1) {
-					guiManager.setOptionsPanelVisible();
-				}
-				
-				else if(currentOption == 2) {
-					guiManager.setHighScoresPanelVisible();
-				}
-				
-				else if(currentOption == 3) {
-					System.exit(0);
-				}
-				
-			}
-			else if(name == "w") {
-				currentOption--;
-	        	
-	        	if(currentOption == 0) {
-	        		options.setForeground(strColor);
-	        		play.setForeground(highlighter);
-	        	}
-	        	
-	        	else if(currentOption == 1) {
-	        		highscores.setForeground(strColor);
-	     			options.setForeground(highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 2) {
-	     			quit.setForeground(strColor);
-	     			highscores.setForeground(highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 3){
-	     			play.setForeground(strColor);
-	     			quit.setForeground(highlighter);
-		     	}
-	     		
-	        	//check bounds
-        		if(currentOption < 0) {
-        			currentOption = 3;
-        			play.setForeground(strColor);
-        			quit.setForeground(highlighter);
-        		}
-			}
-			
-			else if(name == "s") {
-				currentOption++;
-	        	
-	        	if(currentOption == 0) {
-	        		quit.setForeground(strColor);
-	        		play.setForeground(highlighter);
-	        	}
-	        		
-	        	else if(currentOption == 1) {
-	        		play.setForeground(strColor);
-	        		options.setForeground(highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 2) {
-	     			options.setForeground(strColor);
-	     			highscores.setForeground(highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 3){
-	     			highscores.setForeground(strColor);
-	     			quit.setForeground(highlighter);
-	     		}
-	        	
-	        	//check bounds
-	        	if(currentOption > 3) {
-	        		currentOption = 0;
-	        		quit.setForeground(strColor);
-	        		play.setForeground(highlighter);
-	        	}
-			}	
-		}
-	}	
 }

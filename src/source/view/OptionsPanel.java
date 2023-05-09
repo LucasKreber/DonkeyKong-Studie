@@ -18,12 +18,12 @@ import source.controller.Sound;
 @SuppressWarnings("serial")
 public class OptionsPanel extends JPanel{
 	
-	private GUIPanelManager guiManager;
+	GUIPanelManager guiManager;
 	
-	private JLabel returnLabel, titleLabel, soundLabel, helpLabel, creditsLabel;
-	private int currentOption;
+	JLabel returnLabel, titleLabel, soundLabel, helpLabel, creditsLabel;
+	int currentOption;
 	protected static boolean soundOn = true;
-	private Sound sound;
+	Sound sound;
 	
 	public OptionsPanel(GUIPanelManager guiManager, Sound sound) {
 		initializeKeyBindings();
@@ -82,109 +82,12 @@ public class OptionsPanel extends JPanel{
 		ActionMap actionMapPause = this.getActionMap();
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("released ENTER"), "enterReleased");
-		actionMapPause.put("enterReleased", new KeyHandler("enter"));
+		actionMapPause.put("enterReleased", new OptionsPanelKeyHandler("enter", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("W"), "wPressed");
-		actionMapPause.put("wPressed", new KeyHandler("w"));
+		actionMapPause.put("wPressed", new OptionsPanelKeyHandler("w", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("S"), "sPressed");
-		actionMapPause.put("sPressed", new KeyHandler("s"));
+		actionMapPause.put("sPressed", new OptionsPanelKeyHandler("s", this));
 	}
-	
-	class KeyHandler extends AbstractAction{
-		String name;
-		
-		public KeyHandler(String name){
-			this.name = name;
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(name == "enter"){
-				if(currentOption == 0) {
-					if(soundLabel.getText().equals("SOUND:ON")) {
-						soundOn = false;
-						soundLabel.setText("SOUND:OFF");
-						sound.disableSound();
-					}
-					else {
-						soundOn = true;
-						soundLabel.setText("SOUND:ON");
-						sound.enableSound();
-					}
-				}
-				else if(currentOption == 1) {
-					guiManager.setHelpPanelVisible();
-				}
-				else if(currentOption == 2) {
-					guiManager.setCreditsPanelVisible();
-				}
-				else if(currentOption == 3) {
-					guiManager.setMainMenuPanelVisible();
-				}
-			}
-			
-			else if(name == "w") {
-				currentOption--;
-	        	
-	        	if(currentOption == 0) {
-	        		helpLabel.setForeground(MainMenu.strColor);
-	        		soundLabel.setForeground(MainMenu.highlighter);
-	        	}
-	        	
-	        	else if(currentOption == 1) {
-	        		creditsLabel.setForeground(MainMenu.strColor);
-	        		helpLabel.setForeground(MainMenu.highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 2) {
-	     			returnLabel.setForeground(MainMenu.strColor);
-	     			creditsLabel.setForeground(MainMenu.highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 3){
-	     			soundLabel.setForeground(MainMenu.strColor);
-	     			returnLabel.setForeground(MainMenu.highlighter);
-		     	}
-	     		
-	        	//check bounds
-        		if(currentOption < 0) {
-        			currentOption = 3;
-        			soundLabel.setForeground(MainMenu.strColor);
-        			returnLabel.setForeground(MainMenu.highlighter);
-        		}
-			}
-			
-			else if(name == "s") {
-				currentOption++;
-	        	
-	        	if(currentOption == 0) {
-	        		returnLabel.setForeground(MainMenu.strColor);
-	        		soundLabel.setForeground(MainMenu.highlighter);
-	        	}
-	        		
-	        	else if(currentOption == 1) {
-	        		soundLabel.setForeground(MainMenu.strColor);
-	        		helpLabel.setForeground(MainMenu.highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 2) {
-	     			helpLabel.setForeground(MainMenu.strColor);
-	     			creditsLabel.setForeground(MainMenu.highlighter);
-	     		}
-	        	
-	     		else if(currentOption == 3){
-	     			creditsLabel.setForeground(MainMenu.strColor);
-	     			returnLabel.setForeground(MainMenu.highlighter);
-	     		}
-	        	
-	        	//check bounds
-	        	if(currentOption > 3) {
-	        		currentOption = 0;
-	        		returnLabel.setForeground(MainMenu.strColor);
-	        		soundLabel.setForeground(MainMenu.highlighter);
-	        	}
-			}	
-		}
-	}	
 }

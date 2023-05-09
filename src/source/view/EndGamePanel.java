@@ -2,13 +2,8 @@ package source.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
-import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
@@ -23,11 +18,11 @@ import source.controller.ScoreData;
 
 public class EndGamePanel extends JPanel{
 	
-	private GUIPanelManager guiManager;
-	private ScoreData scoreData;
+	GUIPanelManager guiManager;
+	ScoreData scoreData;
+	JTextField textArea;
+	int score;
 	private JLabel titleLabel;
-	private JTextField textArea;
-	private int score;
 	
 	public EndGamePanel(GUIPanelManager guiManager, int score){
 		initializeJTextField();
@@ -70,198 +65,87 @@ public class EndGamePanel extends JPanel{
 		ActionMap actionMap = textArea.getActionMap();
 		
 		inputMap.put(KeyStroke.getKeyStroke("released ENTER"), "enterReleased");
-		actionMap.put("enterReleased", new KeyHandler("enter"));
+		actionMap.put("enterReleased", new EndGamePanelKeyHandler("enter", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released BACK_SPACE"), "backSpaceReleased");
-		actionMap.put("backSpaceReleased", new KeyHandler("back space"));
+		actionMap.put("backSpaceReleased", new EndGamePanelKeyHandler("back space", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released Q"), "qReleased");
-		actionMap.put("qReleased", new KeyHandler("q"));
+		actionMap.put("qReleased", new EndGamePanelKeyHandler("q", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released W"), "wReleased");
-		actionMap.put("wReleased", new KeyHandler("w"));
+		actionMap.put("wReleased", new EndGamePanelKeyHandler("w", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released E"), "eReleased");
-		actionMap.put("eReleased", new KeyHandler("e"));
+		actionMap.put("eReleased", new EndGamePanelKeyHandler("e", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released R"), "rReleased");
-		actionMap.put("rReleased", new KeyHandler("r"));
+		actionMap.put("rReleased", new EndGamePanelKeyHandler("r", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released T"), "tReleased");
-		actionMap.put("tReleased", new KeyHandler("t"));
+		actionMap.put("tReleased", new EndGamePanelKeyHandler("t", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released Y"), "yReleased");
-		actionMap.put("yReleased", new KeyHandler("y"));
+		actionMap.put("yReleased", new EndGamePanelKeyHandler("y", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released U"), "uReleased");
-		actionMap.put("uReleased", new KeyHandler("u"));
+		actionMap.put("uReleased", new EndGamePanelKeyHandler("u", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released I"), "iReleased");
-		actionMap.put("iReleased", new KeyHandler("i"));
+		actionMap.put("iReleased", new EndGamePanelKeyHandler("i", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released O"), "oReleased");
-		actionMap.put("oReleased", new KeyHandler("o"));
+		actionMap.put("oReleased", new EndGamePanelKeyHandler("o", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released P"), "pReleased");
-		actionMap.put("pReleased", new KeyHandler("p"));
+		actionMap.put("pReleased", new EndGamePanelKeyHandler("p", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released A"), "aReleased");
-		actionMap.put("aReleased", new KeyHandler("a"));
+		actionMap.put("aReleased", new EndGamePanelKeyHandler("a", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released S"), "sReleased");
-		actionMap.put("sReleased", new KeyHandler("s"));
+		actionMap.put("sReleased", new EndGamePanelKeyHandler("s", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released D"), "dReleased");
-		actionMap.put("dReleased", new KeyHandler("d"));
+		actionMap.put("dReleased", new EndGamePanelKeyHandler("d", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released F"), "fReleased");
-		actionMap.put("fReleased", new KeyHandler("f"));
+		actionMap.put("fReleased", new EndGamePanelKeyHandler("f", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released G"), "gReleased");
-		actionMap.put("gReleased", new KeyHandler("g"));
+		actionMap.put("gReleased", new EndGamePanelKeyHandler("g", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released H"), "hReleased");
-		actionMap.put("hReleased", new KeyHandler("h"));
+		actionMap.put("hReleased", new EndGamePanelKeyHandler("h", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released J"), "jReleased");
-		actionMap.put("jReleased", new KeyHandler("j"));
+		actionMap.put("jReleased", new EndGamePanelKeyHandler("j", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released K"), "kReleased");
-		actionMap.put("kReleased", new KeyHandler("k"));
+		actionMap.put("kReleased", new EndGamePanelKeyHandler("k", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released L"), "lReleased");
-		actionMap.put("lReleased", new KeyHandler("l"));
+		actionMap.put("lReleased", new EndGamePanelKeyHandler("l", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released Z"), "zReleased");
-		actionMap.put("zReleased", new KeyHandler("z"));
+		actionMap.put("zReleased", new EndGamePanelKeyHandler("z", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released X"), "xReleased");
-		actionMap.put("xReleased", new KeyHandler("x"));
+		actionMap.put("xReleased", new EndGamePanelKeyHandler("x", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released C"), "cReleased");
-		actionMap.put("cReleased", new KeyHandler("c"));
+		actionMap.put("cReleased", new EndGamePanelKeyHandler("c", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released V"), "vReleased");
-		actionMap.put("vReleased", new KeyHandler("v"));
+		actionMap.put("vReleased", new EndGamePanelKeyHandler("v", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released B"), "bReleased");
-		actionMap.put("bReleased", new KeyHandler("b"));
+		actionMap.put("bReleased", new EndGamePanelKeyHandler("b", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released N"), "nReleased");
-		actionMap.put("nReleased", new KeyHandler("n"));
+		actionMap.put("nReleased", new EndGamePanelKeyHandler("n", this));
 		
 		inputMap.put(KeyStroke.getKeyStroke("released M"), "mReleased");
-		actionMap.put("mReleased", new KeyHandler("m"));
+		actionMap.put("mReleased", new EndGamePanelKeyHandler("m", this));
 	}
-	
-	class KeyHandler extends AbstractAction{
-		String name;
-		
-		public KeyHandler(String name){
-			this.name = name;
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(textArea.getText().length() == 5){
-				if(name == "enter"){
-					try {
-						scoreData.setHighscore(textArea.getText(), score);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					guiManager.setMainMenuPanelVisible();
-				}
-			}
-			
-			if(textArea.getText().length() > 0){
-				if(name == "back space"){
-					textArea.setText(textArea.getText().substring(0, textArea.getText ().length() - 1));
-				}
-			}
-			
-			if(textArea.getText().length() < 5){
-				if(name == "q"){
-					textArea.setText(textArea.getText() + "Q");
-				}
-				else if(name == "w"){
-					textArea.setText(textArea.getText() + "W");
-				}
-				else if(name == "e"){
-					textArea.setText(textArea.getText() + "E");
-				}
-				else if(name == "r"){
-					textArea.setText(textArea.getText() + "R");
-				}
-				else if(name == "t"){
-					textArea.setText(textArea.getText() + "T");
-				}
-				else if(name == "y"){
-					textArea.setText(textArea.getText() + "Y");
-				}
-				else if(name == "u"){
-					textArea.setText(textArea.getText() + "U");
-				}
-				else if(name == "i"){
-					textArea.setText(textArea.getText() + "I");
-				}
-				else if(name == "o"){
-					textArea.setText(textArea.getText() + "O");
-				}
-				else if(name == "p"){
-					textArea.setText(textArea.getText() + "P");
-				}
-				else if(name == "a"){
-					textArea.setText(textArea.getText() + "A");
-				}
-				else if(name == "s"){
-					textArea.setText(textArea.getText() + "S");
-				}
-				else if(name == "d"){
-					textArea.setText(textArea.getText() + "D");
-				}
-				else if(name == "f"){
-					textArea.setText(textArea.getText() + "F");
-				}
-				else if(name == "g"){
-					textArea.setText(textArea.getText() + "G");
-				}
-				else if(name == "h"){
-					textArea.setText(textArea.getText() + "H");
-				}
-				else if(name == "j"){
-					textArea.setText(textArea.getText() + "J");
-				}
-				else if(name == "k"){
-					textArea.setText(textArea.getText() + "K");
-				}
-				else if(name == "l"){
-					textArea.setText(textArea.getText() + "L");
-				}
-				else if(name == "z"){
-					textArea.setText(textArea.getText() + "Z");
-				}
-				else if(name == "x"){
-					textArea.setText(textArea.getText() + "X");
-				}
-				else if(name == "c"){
-					textArea.setText(textArea.getText() + "C");
-				}
-				else if(name == "v"){
-					textArea.setText(textArea.getText() + "V");
-				}
-				else if(name == "b"){
-					textArea.setText(textArea.getText() + "B");
-				}
-				else if(name == "n"){
-					textArea.setText(textArea.getText() + "N");
-				}
-				else if(name == "m"){
-					textArea.setText(textArea.getText() + "M");
-				}
-			}
-		}
-	}
-
 }

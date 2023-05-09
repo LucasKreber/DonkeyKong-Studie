@@ -527,7 +527,7 @@ public class GameEngine {
 			}
 			
 			if(!collision){
-				barrel.setFalling(true);
+				barrel.setFalling(false);
 			}
 		}
 		

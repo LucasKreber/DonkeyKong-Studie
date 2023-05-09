@@ -11,10 +11,10 @@ import java.awt.image.BufferedImage;
 
 public class HelpPanel extends JPanel{
 	
-	private GUIPanelManager guiManager;
-	private JLabel returnLabel, helpLeftRight, helpUpDown, helpJump, helpSmashHammer, helpPause, tips;
-	private int currentOption = 0;
-	private JLabel label1, label2, label3, label4, label5;
+	GUIPanelManager guiManager;
+	JLabel returnLabel, helpLeftRight, helpUpDown, helpJump, helpSmashHammer, helpPause, tips;
+	int currentOption = 0;
+	JLabel label1, label2, label3, label4, label5;
 	private BufferedImage label1img, label2img, label3img, label4img, label5img;
 	public HelpPanel(GUIPanelManager guiManager) {
 		
@@ -142,174 +142,13 @@ public class HelpPanel extends JPanel{
 		ActionMap actionMapPause = this.getActionMap();
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("released ENTER"), "enterReleased");
-		actionMapPause.put("enterReleased", new KeyHandler("enter"));
+		actionMapPause.put("enterReleased", new HelpPanelKeyHandler("enter", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("A"), "aPressed");
-		actionMapPause.put("aPressed", new KeyHandler("a"));
+		actionMapPause.put("aPressed", new HelpPanelKeyHandler("a", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("D"), "dPressed");
-		actionMapPause.put("dPressed", new KeyHandler("d"));
+		actionMapPause.put("dPressed", new HelpPanelKeyHandler("d", this));
 		
 	}
-	
-	class KeyHandler extends AbstractAction{
-		String name;
-		
-		public KeyHandler(String name){
-			this.name = name;
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(name == "enter"){
-				guiManager.setOptionsPanelVisible();	
-			}
-			
-			else if(name == "a") {
-				if(currentOption > 4)
-					currentOption = 4;
-				
-				currentOption--;
-				if(currentOption == 0) {
-					helpLeftRight.setVisible(true);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(true);
-					label2.setVisible(false);
-					label3.setVisible(false);
-					label4.setVisible(false);
-					label5.setVisible(false);
-	
-				}
-				else if(currentOption == 1) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(true);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(true);
-					label3.setVisible(false);
-					label4.setVisible(false);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 2) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(true);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(false);
-					label3.setVisible(true);
-					label4.setVisible(false);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 3) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(true);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(false);
-					label3.setVisible(false);
-					label4.setVisible(true);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 4) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(true);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(false);
-					label3.setVisible(false);
-					label4.setVisible(false);
-					label5.setVisible(true);
-				}
-			}
-			
-			else if(name == "d") {
-				if(currentOption < 0)
-					currentOption = 0;
-				
-				currentOption++;
-				if(currentOption == 0) {
-					helpLeftRight.setVisible(true);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(true);
-					label2.setVisible(false);
-					label3.setVisible(false);
-					label4.setVisible(false);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 1) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(true);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(true);
-					label3.setVisible(false);
-					label4.setVisible(false);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 2) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(true);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(false);
-					label3.setVisible(true);
-					label4.setVisible(false);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 3) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(true);
-					helpPause.setVisible(false);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(false);
-					label3.setVisible(false);
-					label4.setVisible(true);
-					label5.setVisible(false);
-				}
-				else if(currentOption == 4) {
-					helpLeftRight.setVisible(false);
-					helpUpDown.setVisible(false);
-					helpJump.setVisible(false);
-					helpSmashHammer.setVisible(false);
-					helpPause.setVisible(true);
-					returnLabel.setVisible(true);
-					label1.setVisible(false);
-					label2.setVisible(false);
-					label3.setVisible(false);
-					label4.setVisible(false);
-					label5.setVisible(true);
-				}
-			}
-		}
-	}
-	
 }

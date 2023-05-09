@@ -1,0 +1,37 @@
+
+F
+java:S1066Æ"/Merge this if statement with the enclosing one.(‚ŞˆÒ
+
+java:S1186Ü"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¯ãƒºúÿÿÿÿ
+i
+java:S3776‹"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(Óù¥á
+i
+java:S3776¡"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(¤ÅñÔ
+i
+java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(§âÜı
+>
+java:S1125Æ"'Remove the unnecessary boolean literal.(‚ŞˆÒ
+N
+java:S1135á"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+C
+java:S1125æ"'Remove the unnecessary boolean literal.(ÕĞ¹‚ÿÿÿÿÿ
+M
+java:S1068"2Remove this unused "imageStandBack" private field.(çÂİåıÿÿÿÿ
+N
+java:S1068"8Remove this unused "imageStandBackHammer" private field.(’³Á
+W
+java:S1068"<Remove this unused "imageWalkWithHammer2Left" private field.(Ì‹‚¯øÿÿÿÿ
+S
+java:S1068"=Remove this unused "imageWalkWithHammer2Right" private field.(€¾Æ
+S
+java:S1068"8Remove this unused "imageWalkStrike2Left" private field.(â¯Ç‚üÿÿÿÿ
+O
+java:S1068"9Remove this unused "imageWalkStrike2Right" private field.(×ê¤„
+H
+java:S1068#"2Remove this unused "imageSomething" private field.(á”íÁ
+D
+java:S1068$".Remove this unused "imageDead1" private field.(ãÊÄ“
+D
+java:S1068%".Remove this unused "imageDead2" private field.(ïÿº
+I
+java:S1068&".Remove this unused "imageDead3" private field.(¨ŒîÏùÿÿÿÿ

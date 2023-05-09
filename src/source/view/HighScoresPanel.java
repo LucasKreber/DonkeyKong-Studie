@@ -2,10 +2,8 @@ package source.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
@@ -18,7 +16,7 @@ import source.controller.ScoreData;
 @SuppressWarnings("serial")
 public class HighScoresPanel extends JPanel {
 	
-	private GUIPanelManager guiManager;
+	GUIPanelManager guiManager;
 	private ScoreData highscores;
 	private JLabel returnLabel, titleLabel , one, two, three, four, five;
 	private JLabel firstName, secondName, thirdName, fourthName, fifthName;
@@ -159,27 +157,12 @@ public class HighScoresPanel extends JPanel {
 		ActionMap actionMapPause = this.getActionMap();
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("released ENTER"), "enterReleased");
-		actionMapPause.put("enterReleased", new KeyHandler("enter"));
+		actionMapPause.put("enterReleased", new HighScoresPanelKeyHandler("enter", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("W"), "wPressed");
-		actionMapPause.put("wPressed", new KeyHandler("w"));
+		actionMapPause.put("wPressed", new HighScoresPanelKeyHandler("w", this));
 		
 		inputMapPause.put(KeyStroke.getKeyStroke("S"), "sPressed");
-		actionMapPause.put("sPressed", new KeyHandler("s"));
+		actionMapPause.put("sPressed", new HighScoresPanelKeyHandler("s", this));
 	}
-	
-	class KeyHandler extends AbstractAction{
-		String name;
-		
-		public KeyHandler(String name){
-			this.name = name;
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(name == "enter"){
-				guiManager.setMainMenuPanelVisible();
-			}
-		}
-	}	
 }

@@ -11,6 +11,8 @@ public class RollingBarrel extends Barrel{
 	private Image imageRoll4 =  new ImageIcon("src/image/22.png").getImage();
 	private Image imageFall1 =  new ImageIcon("src/image/23.png").getImage();
 	private Image imageFall2 =  new ImageIcon("src/image/24.png").getImage();
+	private Image imageFall3 =  new ImageIcon("src/image/12.png").getImage();
+
 	private Image img= imageRoll1;
 
 	public RollingBarrel(int x, int y){
@@ -20,7 +22,8 @@ public class RollingBarrel extends Barrel{
 
 	public void animation(){
 		if(isFalling()==true){
-			if(getY()%40<20) img=imageFall1;
+			if(getY()%40<20) img=imageFall1; //Fehler imageFall3
+			//if(getY()%40<20) img=imageFall3;
 			else if(getY()%40>19) img=imageFall2;
 		}
 		else if(isFalling()==false){

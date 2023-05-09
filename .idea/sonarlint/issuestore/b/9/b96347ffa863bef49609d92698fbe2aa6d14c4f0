@@ -1,0 +1,19 @@
+
+l	java:S116"WRename this field "PASS_THROUGH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Áâç
+7
+java:S1170"!Make this final field static too.(¬Áâç
+M
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+g
+java:S18714"LThis branch's code block is the same as the block for the branch on line 40.(£³á¾ÿÿÿÿÿ
+b
+java:S18710"LThis branch's code block is the same as the block for the branch on line 36.(¾Ãóë
+g
+java:S1871,"LThis branch's code block is the same as the block for the branch on line 32.(ñ¦„ûÿÿÿÿ
+b
+java:S18718"LThis branch's code block is the same as the block for the branch on line 32.(ìÌã‡
+E
+java:S1068
+"/Remove this unused "imageStand2" private field.(ó¥¾™
+U
+java:S1068":Remove this unused "imageWithFallingBarrel" private field.(£Õ­Úıÿÿÿÿ
