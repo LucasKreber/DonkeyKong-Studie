@@ -1,28 +1,0 @@
-
-J
-java:S1066w"/Merge this if statement with the enclosing one.(òÛÄœûÿÿÿÿ
-€
-java:S13193"jThe type of "nonmovable" should be an interface such as "List" rather than the implementation "ArrayList".(©¹ùŒ
-}
-java:S13193"gThe type of "barrels" should be an interface such as "List" rather than the implementation "ArrayList".(©¹ùŒ
-„
-java:S13193"nThe type of "fireElementals" should be an interface such as "List" rather than the implementation "ArrayList".(©¹ùŒ
-G
-java:S1948",Make "nonmovable" transient or serializable.(‚¬Ë¡ûÿÿÿÿ
-?
-java:S1948")Make "barrels" transient or serializable.(š²¹…
-K
-java:S1948"0Make "fireElementals" transient or serializable.(Š¨À«üÿÿÿÿ
-C
-java:S1948"(Make "player" transient or serializable.(Ç¹Ù±úÿÿÿÿ
-=
-java:S1948!"'Make "heart" transient or serializable.(ØÅ•å
-C
-java:S1948""-Make "brokenHeart" transient or serializable.(ñš
-–
-java:S1130'"{Remove the declaration of thrown exception 'java.io.FileNotFoundException', as it cannot be thrown from constructor's body.(á¼Øİûÿÿÿÿ
-h
-java:S3776H"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(³ıŸê
-P
-java:S1161H":Add the "@Override" annotation above this method signature(³ıŸê
-D	java:S108—")Either remove or fill this block of code.(ñ“Š±üÿÿÿÿ

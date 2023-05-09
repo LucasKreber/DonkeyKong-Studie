@@ -1,9 +1,0 @@
-
-R
-java:S4973"<Strings and Boxed types should be compared using "equals()".(»áÛ•
-W
-java:S4973#"<Strings and Boxed types should be compared using "equals()".(º­»Äüÿÿÿÿ
-W
-java:S4973P"<Strings and Boxed types should be compared using "equals()".(ÃŞ¤ôüÿÿÿÿ
-m
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(¼ Òşüÿÿÿÿ

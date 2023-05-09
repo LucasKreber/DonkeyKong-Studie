@@ -1,12 +1,0 @@
-
-=
-java:S1125"'Remove the unnecessary boolean literal.(âˆÄ´
-V	java:S125"<This block of commented-out lines of code should be removed.(ìáÈÕøÿÿÿÿ
-=
-java:S1125"'Remove the unnecessary boolean literal.(ŠÞš­
-M
-java:S1135'"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿ
-M
-java:S1135."2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿ
-D
-java:S1068".Remove this unused "imageFall3" private field.(ªä’©

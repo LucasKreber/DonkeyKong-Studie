@@ -1,0 +1,15 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+application {
+    mainClass = 'source.view.Main'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
