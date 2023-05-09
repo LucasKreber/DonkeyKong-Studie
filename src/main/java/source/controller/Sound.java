@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import sun.audio.*;
+//import sun.audio.*;
 
 public class Sound {
 	private String walkSound = "src/data/walking.wav";
@@ -16,21 +16,21 @@ public class Sound {
 	private String winSound = "src/data/win1.wav";
 	private String backgroundSound = "src/data/background.wav";
 	private String levelSelectionSound = "src/data/level selection.wav";
-	private AudioStream audioStream;
-	private ContinuousAudioDataStream loop1;
-	private ContinuousAudioDataStream loop2;
-	private ContinuousAudioDataStream loop3;
+	//private AudioStream audioStream;
+	//private ContinuousAudioDataStream loop1;
+	//private ContinuousAudioDataStream loop2;
+	//private ContinuousAudioDataStream loop3;
 	private InputStream ws;
-	private AudioData a;
+	//private AudioData a;
 
 	boolean enable = true;
 
 	public void disableSound(){
 		enable=false;
 		if(enable==false) {
-			AudioPlayer.player.stop(loop1);
-			AudioPlayer.player.stop(loop2);
-			AudioPlayer.player.stop(audioStream);
+			//AudioPlayer.player.stop(loop1);
+			//AudioPlayer.player.stop(loop2);
+			//AudioPlayer.player.stop(audioStream);
 		}
 			
 	}
@@ -38,8 +38,8 @@ public class Sound {
 	public void enableSound(){
 		enable=true;
 		if(enable==true) {
-			AudioPlayer.player.start(loop1);
-			AudioPlayer.player.start(audioStream);
+			//AudioPlayer.player.start(loop1);
+			//AudioPlayer.player.start(audioStream);
 		}
 	}
 
@@ -51,11 +51,11 @@ public class Sound {
 		if(enable){
 			try{	
 				ws = new FileInputStream(walkSound);
-				audioStream = new AudioStream(ws);
-				a = audioStream.getData();
+				//audioStream = new AudioStream(ws);
+				//a = audioStream.getData();
 
-				loop3 = new ContinuousAudioDataStream(a);
-				AudioPlayer.player.start(loop3);
+				//loop3 = new ContinuousAudioDataStream(a);
+				//AudioPlayer.player.start(loop3);
 
 			}catch(IOException a){
 				System.out.println("Not Found");
@@ -67,8 +67,8 @@ public class Sound {
 			if(enable){
 				try{
 					ws = new FileInputStream(jumpSound);
-					audioStream = new AudioStream(ws);
-					AudioPlayer.player.start(audioStream);
+					//audioStream = new AudioStream(ws);
+					//AudioPlayer.player.start(audioStream);
 				}catch(IOException a){
 					System.out.println("Not Found");
 				}
@@ -79,8 +79,8 @@ public class Sound {
 			if(enable){
 				try{
 					ws = new FileInputStream(introSound);
-					audioStream = new AudioStream(ws);
-					AudioPlayer.player.start(audioStream);
+					//audioStream = new AudioStream(ws);
+					//AudioPlayer.player.start(audioStream);
 				}catch(IOException a){
 					System.out.println("Not Found");
 				}
@@ -91,8 +91,8 @@ public class Sound {
 			if(enable){
 				try{
 					ws = new FileInputStream(gettingItemSound);
-					audioStream = new AudioStream(ws);
-					AudioPlayer.player.start(audioStream);
+					//audioStream = new AudioStream(ws);
+					//AudioPlayer.player.start(audioStream);
 				}catch(IOException a){
 					System.out.println("Not Found");
 				}
@@ -103,8 +103,8 @@ public class Sound {
 			if(enable){
 				try{
 					ws = new FileInputStream(hammerSound);
-					audioStream = new AudioStream(ws);
-					AudioPlayer.player.start(audioStream);
+					//audioStream = new AudioStream(ws);
+					//AudioPlayer.player.start(audioStream);
 				}catch(IOException a){
 					System.out.println("Not Found");
 				}
@@ -115,8 +115,8 @@ public class Sound {
 			if(enable){
 				try{
 					ws = new FileInputStream(loseSound);
-					audioStream = new AudioStream(ws);
-					AudioPlayer.player.start(audioStream);
+					//audioStream = new AudioStream(ws);
+					//AudioPlayer.player.start(audioStream);
 				}catch(IOException a){
 					System.out.println("Not Found");
 				}
@@ -127,8 +127,8 @@ public class Sound {
 			if(enable){
 				try{
 					ws = new FileInputStream(winSound);
-					audioStream = new AudioStream(ws);
-					AudioPlayer.player.start(audioStream);
+					//audioStream = new AudioStream(ws);
+					//AudioPlayer.player.start(audioStream);
 				}catch(IOException a){
 					System.out.println("Not Found");
 				}
@@ -139,11 +139,11 @@ public class Sound {
 		if(enable){
 			try{	
 				ws = new FileInputStream(backgroundSound);
-				audioStream = new AudioStream(ws);
-				a = audioStream.getData();
+				//audioStream = new AudioStream(ws);
+				//a = audioStream.getData();
 
-				loop1 = new ContinuousAudioDataStream(a);
-				AudioPlayer.player.start(loop1);
+				//loop1 = new ContinuousAudioDataStream(a);
+				//AudioPlayer.player.start(loop1);
 
 			}catch(IOException a){
 				System.out.println("Not Found");
@@ -155,11 +155,11 @@ public class Sound {
 		if(enable){
 			try{	
 				ws = new FileInputStream(levelSelectionSound);
-				audioStream = new AudioStream(ws);
-				a = audioStream.getData();
+				//audioStream = new AudioStream(ws);
+				//a = audioStream.getData();
 
-				loop2 = new ContinuousAudioDataStream(a);
-				AudioPlayer.player.start(loop2);
+				//loop2 = new ContinuousAudioDataStream(a);
+				//AudioPlayer.player.start(loop2);
 
 			}catch(IOException a){
 				System.out.println("Not Found");
@@ -168,21 +168,21 @@ public class Sound {
 	}
 	
 	public void stopBackground(){
-		AudioPlayer.player.stop(loop1);
+		//AudioPlayer.player.stop(loop1);
 	}
 	
 	public void stopLevelSelection(){
-		AudioPlayer.player.stop(loop2);
+		//AudioPlayer.player.stop(loop2);
 	}
 	
 	public void stopWalk(){
-		AudioPlayer.player.stop(loop3);
+		//AudioPlayer.player.stop(loop3);
 	}
 	
 	public boolean soundWalkOn(){
-		if(loop3 != null){
-			return true;
-		}
+		//if(loop3 != null){
+		//	return true;
+		//}
 		return false;
 	}
 }
